@@ -1,1 +1,1 @@
-cp -r $OPENSHIFT_REPO_DIR/.openshift/action_hooks/jenkins/* $OPENSHIFT_DATA_DIR
+cp -rf $OPENSHIFT_REPO_DIR/.openshift/action_hooks/jenkins/* $OPENSHIFT_DATA_DIR
