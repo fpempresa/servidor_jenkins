@@ -43,7 +43,7 @@
         </hudson.model.ChoiceParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>LINES</name>
-          <description>Nº de lineas a mostrar (desde el final)</description>
+          <description>Num de lineas a mostrar (desde el final)</description>
           <defaultValue>100</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
