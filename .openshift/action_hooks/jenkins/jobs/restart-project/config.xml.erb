@@ -63,7 +63,7 @@
           <hudson.plugins.git.UserRemoteConfig>
             <name>origin</name>
             <refspec>+refs/heads/*:refs/remotes/origin/*</refspec>
-            <url></url>
+            <url><%= ENV['GIT_REPOSITORY_PRIVATE'] %></url>
           </hudson.plugins.git.UserRemoteConfig>
         </userRemoteConfigs>
         <branches>
@@ -95,24 +95,14 @@
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
-  <triggers class="vector">
-    <hudson.triggers.TimerTrigger>
-      <spec>00 04 * * *</spec>
-    </hudson.triggers.TimerTrigger>
-  </triggers>
+  <triggers class="vector"/>
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
       <command>cd ./creacion_servidores
-./ant.sh backup-project</command>
+./ant.sh restart-project</command>
     </hudson.tasks.Shell>
   </builders>
-  <publishers>
-    <hudson.tasks.Mailer plugin="mailer@1.4">
-      <recipients>devfpempresa@fpmislata.com</recipients>
-      <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
-      <sendToIndividuals>false</sendToIndividuals>
-    </hudson.tasks.Mailer>
-  </publishers>
+  <publishers/>
   <buildWrappers/>
 </project>

@@ -63,7 +63,7 @@
           <hudson.plugins.git.UserRemoteConfig>
             <name>origin</name>
             <refspec>+refs/heads/*:refs/remotes/origin/*</refspec>
-            <url></url>
+            <url><%= ENV['GIT_REPOSITORY_PRIVATE'] %></url>
           </hudson.plugins.git.UserRemoteConfig>
         </userRemoteConfigs>
         <branches>
@@ -100,7 +100,7 @@
   <builders>
     <hudson.tasks.Shell>
       <command>cd ./creacion_servidores
-./ant.sh restart-jenkins</command>
+./ant.sh restore-project</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>

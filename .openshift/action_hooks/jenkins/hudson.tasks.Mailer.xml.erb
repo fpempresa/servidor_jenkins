@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <hudson.tasks.Mailer_-DescriptorImpl plugin="mailer@1.4">
   <hudsonUrl>http://jenkins-prufpempresa.rhcloud.com/</hudsonUrl>
-  <smtpAuthUsername></smtpAuthUsername>
-  <smtpAuthPassword></smtpAuthPassword>
+  <smtpAuthUsername><%= ENV['SERVICES_MASTER_EMAIL'] %></smtpAuthUsername>
+  <smtpAuthPassword><%= ENV['SERVICES_MASTER_PASSWORD'] %></smtpAuthPassword>
   <smtpHost>smtp.gmail.com</smtpHost>
   <useSsl>true</useSsl>
   <smtpPort>465</smtpPort>

@@ -15,7 +15,7 @@
       </views>
     </hudson.model.MyViewsProperty>
     <hudson.security.HudsonPrivateSecurityRealm_-Details>
-      <passwordHash></passwordHash>
+      <passwordHash><%= ENV['JENKINS_PASSWORD_HASH'] %></passwordHash>
     </hudson.security.HudsonPrivateSecurityRealm_-Details>
     <hudson.tasks.Mailer_-UserProperty>
       <emailAddress>changeme@changeme.com</emailAddress>

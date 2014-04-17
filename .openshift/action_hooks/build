@@ -1,1 +1,2 @@
+find $OPENSHIFT_REPO_DIR/.openshift/action_hooks/jenkins/ -name "*.erb" -exec ./erbtemplate.sh {} \;
 cp -rf $OPENSHIFT_REPO_DIR/.openshift/action_hooks/jenkins/* $OPENSHIFT_DATA_DIR

@@ -63,7 +63,7 @@
           <hudson.plugins.git.UserRemoteConfig>
             <name>origin</name>
             <refspec>+refs/heads/*:refs/remotes/origin/*</refspec>
-            <url></url>
+            <url><%= ENV['GIT_REPOSITORY_PRIVATE'] %></url>
           </hudson.plugins.git.UserRemoteConfig>
         </userRemoteConfigs>
         <branches>

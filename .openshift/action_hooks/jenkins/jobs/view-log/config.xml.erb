@@ -22,6 +22,38 @@
     <hudson.plugins.openshift.OpenShiftBuilderTypeJobProperty plugin="openshift@1.4">
       <builderType></builderType>
     </hudson.plugins.openshift.OpenShiftBuilderTypeJobProperty>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>LOG_TYPE</name>
+          <description>El fichero de los a mostrar</description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>catalina</string>
+              <string>host-manager</string>
+              <string>localhost</string>
+              <string>manager</string>
+              <string>localhost_access_log</string>
+              <string>haproxy</string>
+              <string>haproxy_ctld</string>
+              <string>jbossews</string>
+              <string>newrelic</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>LINES</name>
+          <description>Num de lineas a mostrar (desde el final)</description>
+          <defaultValue>100</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>LOG_DATE</name>
+          <description>Fecha del fichero de log (si es necesario)
+El formato es YYYY-MM-DD</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
   </properties>
   <scm class="org.jenkinsci.plugins.multiplescms.MultiSCM" plugin="multiple-scms@0.3">
     <scms>
@@ -63,7 +95,7 @@
           <hudson.plugins.git.UserRemoteConfig>
             <name>origin</name>
             <refspec>+refs/heads/*:refs/remotes/origin/*</refspec>
-            <url></url>
+            <url><%= ENV['GIT_REPOSITORY_PRIVATE'] %></url>
           </hudson.plugins.git.UserRemoteConfig>
         </userRemoteConfigs>
         <branches>
@@ -100,7 +132,7 @@
   <builders>
     <hudson.tasks.Shell>
       <command>cd ./creacion_servidores
-./ant.sh show-info</command>
+./ant.sh view-log</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>

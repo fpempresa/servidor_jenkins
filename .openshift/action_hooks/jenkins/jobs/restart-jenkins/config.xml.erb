@@ -4,7 +4,7 @@
   <description></description>
   <logRotator class="hudson.tasks.LogRotator">
     <daysToKeep>-1</daysToKeep>
-    <numToKeep>1</numToKeep>
+    <numToKeep>-1</numToKeep>
     <artifactDaysToKeep>-1</artifactDaysToKeep>
     <artifactNumToKeep>1</artifactNumToKeep>
   </logRotator>
@@ -63,7 +63,7 @@
           <hudson.plugins.git.UserRemoteConfig>
             <name>origin</name>
             <refspec>+refs/heads/*:refs/remotes/origin/*</refspec>
-            <url></url>
+            <url><%= ENV['GIT_REPOSITORY_PRIVATE'] %></url>
           </hudson.plugins.git.UserRemoteConfig>
         </userRemoteConfigs>
         <branches>
@@ -100,7 +100,7 @@
   <builders>
     <hudson.tasks.Shell>
       <command>cd ./creacion_servidores
-./ant.sh show-log-files</command>
+./ant.sh restart-jenkins</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
