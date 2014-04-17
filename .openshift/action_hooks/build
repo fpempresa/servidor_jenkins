@@ -1,2 +1,10 @@
-find $OPENSHIFT_REPO_DIR/.openshift/action_hooks/jenkins/ -name "*.erb" -exec ./erbtemplate.sh {} \;
+#!/bin/bash
+directorios=$(find $OPENSHIFT_REPO_DIR/.openshift/action_hooks/jenkins  -type d)
+for directory in $directorios ; do
+    cd $directory
+    for file in $(ls *.erb) ; do
+       newFile=$(echo $file | sed "s/\.erb$//g")
+       erb $file > $newFile
+    done
+done
 cp -rf $OPENSHIFT_REPO_DIR/.openshift/action_hooks/jenkins/* $OPENSHIFT_DATA_DIR
