@@ -89,13 +89,17 @@
         <skipTag>false</skipTag>
         <scmName></scmName>
       </hudson.plugins.git.GitSCM>
+
+		<% for i in 1..9 %>
+			<% if  ENV['GIT_REPOSITORY_SOURCE_CODE_'+i.to_s] %>
+			
       <hudson.plugins.git.GitSCM plugin="git@1.1.12">
         <configVersion>2</configVersion>
         <userRemoteConfigs>
           <hudson.plugins.git.UserRemoteConfig>
             <name>origin</name>
             <refspec>+refs/heads/*:refs/remotes/origin/*</refspec>
-            <url>https://github.com/fpempresa/fpempresa.git</url>
+            <url><%= ENV['GIT_REPOSITORY_SOURCE_CODE_'+i.to_s] %></url>
           </hudson.plugins.git.UserRemoteConfig>
         </userRemoteConfigs>
         <branches>
@@ -113,7 +117,7 @@
         <buildChooser class="hudson.plugins.git.util.DefaultBuildChooser"/>
         <gitTool>Default</gitTool>
         <submoduleCfg class="list"/>
-        <relativeTargetDir>fpempresa</relativeTargetDir>
+        <relativeTargetDir><%= ENV['TARGET_DIR_REPOSITORY_SOURCE_CODE_'+i.to_s] %></relativeTargetDir>
         <excludedRegions></excludedRegions>
         <excludedUsers></excludedUsers>
         <gitConfigName></gitConfigName>
@@ -121,102 +125,10 @@
         <skipTag>false</skipTag>
         <scmName></scmName>
       </hudson.plugins.git.GitSCM>
-      <hudson.plugins.git.GitSCM plugin="git@1.1.12">
-        <configVersion>2</configVersion>
-        <userRemoteConfigs>
-          <hudson.plugins.git.UserRemoteConfig>
-            <name>origin</name>
-            <refspec>+refs/heads/*:refs/remotes/origin/*</refspec>
-            <url>https://github.com/logongas/ix3.git</url>
-          </hudson.plugins.git.UserRemoteConfig>
-        </userRemoteConfigs>
-        <branches>
-          <hudson.plugins.git.BranchSpec>
-            <name>**</name>
-          </hudson.plugins.git.BranchSpec>
-        </branches>
-        <recursiveSubmodules>false</recursiveSubmodules>
-        <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
-        <authorOrCommitter>false</authorOrCommitter>
-        <clean>false</clean>
-        <wipeOutWorkspace>false</wipeOutWorkspace>
-        <pruneBranches>false</pruneBranches>
-        <remotePoll>false</remotePoll>
-        <buildChooser class="hudson.plugins.git.util.DefaultBuildChooser"/>
-        <gitTool>Default</gitTool>
-        <submoduleCfg class="list"/>
-        <relativeTargetDir>ix3</relativeTargetDir>
-        <excludedRegions></excludedRegions>
-        <excludedUsers></excludedUsers>
-        <gitConfigName></gitConfigName>
-        <gitConfigEmail></gitConfigEmail>
-        <skipTag>false</skipTag>
-        <scmName></scmName>
-      </hudson.plugins.git.GitSCM>
-      <hudson.plugins.git.GitSCM plugin="git@1.1.12">
-        <configVersion>2</configVersion>
-        <userRemoteConfigs>
-          <hudson.plugins.git.UserRemoteConfig>
-            <name>origin</name>
-            <refspec>+refs/heads/*:refs/remotes/origin/*</refspec>
-            <url>https://github.com/logongas/ix3security.git</url>
-          </hudson.plugins.git.UserRemoteConfig>
-        </userRemoteConfigs>
-        <branches>
-          <hudson.plugins.git.BranchSpec>
-            <name>**</name>
-          </hudson.plugins.git.BranchSpec>
-        </branches>
-        <recursiveSubmodules>false</recursiveSubmodules>
-        <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
-        <authorOrCommitter>false</authorOrCommitter>
-        <clean>false</clean>
-        <wipeOutWorkspace>false</wipeOutWorkspace>
-        <pruneBranches>false</pruneBranches>
-        <remotePoll>false</remotePoll>
-        <buildChooser class="hudson.plugins.git.util.DefaultBuildChooser"/>
-        <gitTool>Default</gitTool>
-        <submoduleCfg class="list"/>
-        <relativeTargetDir>ix3security</relativeTargetDir>
-        <excludedRegions></excludedRegions>
-        <excludedUsers></excludedUsers>
-        <gitConfigName></gitConfigName>
-        <gitConfigEmail></gitConfigEmail>
-        <skipTag>false</skipTag>
-        <scmName></scmName>
-      </hudson.plugins.git.GitSCM>
-      <hudson.plugins.git.GitSCM plugin="git@1.1.12">
-        <configVersion>2</configVersion>
-        <userRemoteConfigs>
-          <hudson.plugins.git.UserRemoteConfig>
-            <name>origin</name>
-            <refspec>+refs/heads/*:refs/remotes/origin/*</refspec>
-            <url>https://github.com/logongas/ix3web.git</url>
-          </hudson.plugins.git.UserRemoteConfig>
-        </userRemoteConfigs>
-        <branches>
-          <hudson.plugins.git.BranchSpec>
-            <name>**</name>
-          </hudson.plugins.git.BranchSpec>
-        </branches>
-        <recursiveSubmodules>false</recursiveSubmodules>
-        <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
-        <authorOrCommitter>false</authorOrCommitter>
-        <clean>false</clean>
-        <wipeOutWorkspace>false</wipeOutWorkspace>
-        <pruneBranches>false</pruneBranches>
-        <remotePoll>false</remotePoll>
-        <buildChooser class="hudson.plugins.git.util.DefaultBuildChooser"/>
-        <gitTool>Default</gitTool>
-        <submoduleCfg class="list"/>
-        <relativeTargetDir>ix3web</relativeTargetDir>
-        <excludedRegions></excludedRegions>
-        <excludedUsers></excludedUsers>
-        <gitConfigName></gitConfigName>
-        <gitConfigEmail></gitConfigEmail>
-        <skipTag>false</skipTag>
-        <scmName></scmName>
-      </hudson.plugins.git.GitSCM>
+	  
+			<% end %>
+		<% end %>	  
+	  
     </scms>
   </scm>
   <canRoam>true</canRoam>
