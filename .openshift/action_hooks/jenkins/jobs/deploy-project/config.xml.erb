@@ -139,7 +139,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>cd ./fpempresa
+      <command>cd ./<%= ENV['TARGET_DIR_REPOSITORY_SOURCE_CODE_1'] %>
 ./ant.sh distOpenShift</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
