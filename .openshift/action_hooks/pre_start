@@ -1,0 +1,5 @@
+#!/bin/bash
+
+LOG_DIR=$OPENSHIFT_LOG_DIR
+cd $OPENSHIFT_REPO_DIR/.openshift/action_hooks/newrelic
+. ./newrelic.sh > ${LOG_DIR}newrelic.log 2>&1
