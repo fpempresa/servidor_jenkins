@@ -97,14 +97,14 @@
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <triggers class="vector">
     <hudson.triggers.TimerTrigger>
-      <spec>00 04 * * *</spec>
+      <spec>00 03 * * 1,3,5</spec>
     </hudson.triggers.TimerTrigger>
   </triggers>
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
       <command>cd ./creacion_servidores
-./ant.sh backup-project</command>
+./ant.sh delete-log-files</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
