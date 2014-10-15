@@ -104,7 +104,7 @@
         </userRemoteConfigs>
         <branches>
           <hudson.plugins.git.BranchSpec>
-            <name>master</name>
+            <name><% if ENV['APP_ENVIRONMENT']=='PRODUCCION' %>master<% elseif ENV['APP_ENVIRONMENT']=='PREPRODUCCION' %>release<% else %>develop<% end %></name>
           </hudson.plugins.git.BranchSpec>
         </branches>
         <recursiveSubmodules>false</recursiveSubmodules>
