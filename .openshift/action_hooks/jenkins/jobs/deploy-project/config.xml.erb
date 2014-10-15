@@ -105,11 +105,11 @@
         <branches>
           <hudson.plugins.git.BranchSpec>
             <% if ENV['APP_ENVIRONMENT']=='PRODUCCION' %>
-			  <name>master</name>
+			  <name>ENV['APP_ENVIRONMENT']</name>
 			<% elseif ENV['APP_ENVIRONMENT']=='PREPRODUCCION' %>
-			  <name>release</name>
+			  <name>ENV['APP_ENVIRONMENT']</name>
 			<% else %>
-			  <name>develop</name>
+			  <name>ENV['APP_ENVIRONMENT']</name>
 			<% end %>
           </hudson.plugins.git.BranchSpec>
         </branches>
