@@ -146,7 +146,7 @@
   <builders>
     <hudson.tasks.Shell>
       <command>cd ./<%= ENV['TARGET_DIR_REPOSITORY_SOURCE_CODE_1'] %>
-./ant.sh distOpenShift</command>
+./ant.sh -f dist.xml distOpenShift</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command>cd ./creacion_servidores
