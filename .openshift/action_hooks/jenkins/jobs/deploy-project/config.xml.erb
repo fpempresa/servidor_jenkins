@@ -105,11 +105,11 @@
         <branches>
           <hudson.plugins.git.BranchSpec>
             <% if ENV['APP_ENVIRONMENT']=='PRODUCCION' %>
-			  <name>master</name>
+			  <name><%= ENV['GIT_BRANCH_SOURCE_CODE_'+i.to_s].split(",")[0] %></name>
 			<% elsif ENV['APP_ENVIRONMENT']=='PREPRODUCCION' %>
-			  <name>release</name>
+			  <name><%= ENV['GIT_BRANCH_SOURCE_CODE_'+i.to_s].split(",")[1] %></name>
 			<% else %>
-			  <name>develop</name>
+			  <name><%= ENV['GIT_BRANCH_SOURCE_CODE_'+i.to_s].split(",")[2] %></name>
 			<% end %>
           </hudson.plugins.git.BranchSpec>
         </branches>
